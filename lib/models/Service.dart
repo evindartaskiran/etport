@@ -7,8 +7,7 @@ class Service {
 
   Service({this.id, required this.title, required this.image, this.color});
 }
-
-// For demo list of service
+//ilgilendiğim programlama dilleri bölümü
 List<Service> services = [
   Service(
     id: 1,

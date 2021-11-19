@@ -12,7 +12,7 @@ class SectionTitle extends StatelessWidget {
 
   final String title, subTitle;
   final Color color;
-
+//cubukların rengi boyutu
   @override
   Widget build(BuildContext context) {
     return Container(

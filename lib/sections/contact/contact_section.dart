@@ -1,16 +1,21 @@
+import 'package:etport/sections/contact/components/contactbox.dart';
 import 'package:flutter/material.dart';
 import 'package:etport/components/default_button.dart';
 import 'package:etport/components/section_title.dart';
 import 'package:etport/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'components/socal_card.dart';
 
+
 class ContactSection extends StatelessWidget {
+  const ContactSection({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      // this height only for demo
-      // height: 500,
+// this height only for demo
+// height: 500,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Color(0xFFFFFFF),
@@ -34,11 +39,21 @@ class ContactSection extends StatelessWidget {
   }
 }
 
-class ContactBox extends StatelessWidget {
-  const ContactBox({
-    Key? key,
-  }) : super(key: key);
 
+
+class ContactBoxState extends State<ContactBox> {
+  Future link( String link) async
+  {
+    if(await canLaunch(link)){
+      await launch(link);
+    }
+    else {
+      debugPrint('EROR');
+    }
+    
+  }
+
+//iletişim bölümündeki beyaz sayfa
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,19 +76,27 @@ class ContactBox extends StatelessWidget {
                 color: Color(0xFF967BB6),
                 iconSrc: "assets/images/linkedin.png",
                 name: 'Linkedinden Ulaşabilirsiniz',
-                press: () {},
+                press: () {
+             link('https://www.linkedin.com/in/evindar-ta%C5%9Fk%C4%B1ran/');
+                },
               ),
               SocalCard(
                 color: Color(0xFF967BB6),
                 iconSrc: "assets/images/instagramlogo.png",
                 name: 'İnstagramdan ulaşabilirsiniz',
-                press: () {},
-              ),
+                press: () {
+                  link('https://www.instagram.com/evintaskiran_/');
+                }
+                  ),
+
+
               SocalCard(
                 color: Color(0xFF967BB6),
-                iconSrc: "assets/images/img_2.png",
-                name: 'Whatsaptan ulaşabilirsiniz',
-                press: () {},
+                iconSrc: "assets/images/github1.png",
+                name: 'Githubtan ulaşabilirsiniz',
+                press: () {
+                  link('https://github.com/');
+                },
               ),
             ],
           ),
